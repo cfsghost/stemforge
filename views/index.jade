@@ -14,7 +14,8 @@ html
 		script
 			enyo.depends(
 				'$lib/layout',
-				'$lib/onyx'
+				'$lib/onyx',
+				'$lib/layout/fittable'
 			);
 
 			enyo.kind({
@@ -23,12 +24,26 @@ html
 				tag: 'div',
 				classes: 'onyx',
 				components: [
-						{
-							kind: 'onyx.Toolbar',
-							components: [
-									{ content: 'StemForge' }
-							]
-						}
+					{
+						kind: 'FittableRows',
+						components: [
+							{
+								kind: 'onyx.Toolbar',
+								components: [
+										{ content: 'StemForge' }
+								]
+							},
+							{
+								kind: 'List',
+								classes: ' enyo-unselectable',
+								fit: true,
+								components: [
+									{
+									}
+								]
+							}
+						]
+					}
 				]
 			});
 
