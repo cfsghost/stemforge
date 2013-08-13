@@ -1,0 +1,24 @@
+{
+  "name": "stemforge",
+  "version": "0.0.1",
+  "description": "StemForge website",
+  "keywords": [
+    "web"
+  ],
+  "author": {
+    "name": "Fred Chien(錢逢祥)",
+    "email": "fred@mandice.com",
+    "web": "http://www.mandice.com/"
+  },
+  "license": "MIT",
+  "directories": {
+    "tests": "lib"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "dependencies": {
+    "frex.js": ">= 0.0.8"
+  },
+  "main": "./app.js"
+}

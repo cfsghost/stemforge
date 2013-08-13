@@ -1,0 +1,37 @@
+!!!
+html
+	head
+		title StemForge
+		link(href='/css/default.css', media='all', rel='stylesheet', type='text/css')
+		link(href='http://enyojs.com/enyo-2.1/enyo.css', media='all', rel='stylesheet', type='text/css')
+		script(type='text/javascript', src='http://enyojs.com/enyo-2.1/enyo.js')
+		script(type='text/javascript', src='http://enyojs.com/lib/onyx/package.js')
+		script(type='text/javascript', src='/frex')
+		script(type='text/javascript', src='/js/index.js')
+
+	body.onyx.enyo-unselectable
+
+		script
+			enyo.depends(
+				'$lib/layout',
+				'$lib/onyx'
+			);
+
+			enyo.kind({
+				name: 'StemForge',
+				kind: enyo.Control,
+				tag: 'div',
+				classes: 'onyx',
+				components: [
+						{
+							kind: 'onyx.Toolbar',
+							components: [
+									{ content: 'StemForge' }
+							]
+						}
+				]
+			});
+
+			var stemForge = new StemForge();
+
+			stemForge.renderInto(document.body);
