@@ -1,16 +1,15 @@
 !!!
 html
 	head
+		meta(name='apple-mobile-web-app-capable', content='yes')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
 		title StemForge
 		link(href='/css/default.css', media='all', rel='stylesheet', type='text/css')
-		link(href='http://enyojs.com/enyo-2.1/enyo.css', media='all', rel='stylesheet', type='text/css')
-		script(type='text/javascript', src='http://enyojs.com/enyo-2.1/enyo.js')
-		script(type='text/javascript', src='http://enyojs.com/lib/onyx/package.js')
+		link(href='http://enyojs.com/enyo-2.2.0/enyo.css', media='all', rel='stylesheet', type='text/css')
+		script(type='text/javascript', src='http://enyojs.com/enyo-2.2.0/enyo.js')
+		script(type='text/javascript', src='http://enyojs.com/enyo-2.2.0/lib/onyx/package.js')
 		script(type='text/javascript', src='/frex')
 		script(type='text/javascript', src='/js/index.js')
-
-	body.onyx.enyo-unselectable
-
 		script
 			enyo.depends(
 				'$lib/layout',
@@ -18,29 +17,53 @@ html
 				'$lib/layout/fittable'
 			);
 
+	body.onyx.enyo-unselectable
+
+		script
+
 			enyo.kind({
 				name: 'StemForge',
 				kind: enyo.Control,
+				layoutKind: 'FittableRowsLayout',
 				tag: 'div',
 				classes: 'onyx',
 				components: [
 					{
 						kind: 'FittableRows',
+						classes: 'enyo-fit',
 						components: [
 							{
 								kind: 'onyx.Toolbar',
+								layoutKind: 'FittableColumnsLayout',
 								components: [
 										{ content: 'StemForge' }
 								]
 							},
 							{
+								name: 'list',
 								kind: 'List',
-								classes: ' enyo-unselectable',
+								classes: 'enyo-unselectable',
 								fit: true,
+								data: [
+									{ name: 'NAS' },
+									{ name: 'Fax' }
+								],
 								components: [
 									{
+										name: 'item',
+										components: [
+											{ name: 'appName', classes: 'itemLabel' }
+										]
 									}
-								]
+								],
+								onSetupItem: function(inSender, inEvent) {
+									console.log(123);
+									var i = inEvent.index;
+									if (!this.data[i])
+										return;
+
+									this.$.appName.setContent(this.data.name);
+								}
 							}
 						]
 					}
@@ -50,3 +73,4 @@ html
 			var stemForge = new StemForge();
 
 			stemForge.renderInto(document.body);
+
