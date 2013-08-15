@@ -15,6 +15,21 @@ body {
 
 .list-item-label {
 	font-size: 24px;
-	line-height: 80px;
+	line-height: 60px;
 	padding-left: 30px;
+}
+
+.list-item-desc {
+	position: absolute;
+	font-size: 14px;
+	line-height: 20px;
+	padding-left: 30px;
+	color: #ccc;
+}
+
+.list-item-left {
+	position: absolute;
+	line-height: 80px;
+	top: 35px;
+	right: 30px;
 }

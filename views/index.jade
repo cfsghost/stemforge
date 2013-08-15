@@ -24,8 +24,14 @@ html
 				kind: 'FittableRows',
 				classes: 'enyo-fit onyx',
 				data: [
-					{ name: 'NAS' },
-					{ name: 'Fax' }
+					{
+						name: 'NAS',
+						desc: 'Network attachment storage'
+					},
+					{
+						name: 'Fax',
+						desc: 'Paperless fax machine'
+					}
 				],
 				components: [
 					{
@@ -40,12 +46,15 @@ html
 						kind: 'List',
 						classes: 'enyo-unselectable',
 						fit: true,
+						reorderable: true,
 						components: [
 							{
 								name: 'item',
 								classes: 'list-item',
 								components: [
-									{ name: 'appName', classes: 'list-item-label' }
+									{ name: 'appName', classes: 'list-item-label' },
+									{ name: 'appDesc', classes: 'list-item-desc' },
+									{ name: 'appDownloadBtn', kind: 'onyx.Button', classes: 'onyx-affirmative list-item-left', content: 'Download' }
 								]
 							}
 						],
@@ -54,7 +63,7 @@ html
 				],
 				rendered: function() {
 					this.inherited(arguments);
-					this.$.list.setCount(2);
+					this.$.list.setCount(this.data.length);
 					this.$.list.reset();
 				},
 				setupItem: function(inSender, inEvent) {
@@ -64,6 +73,7 @@ html
 
 					var item = this.data[i];
 					this.$.appName.setContent(item.name);
+					this.$.appDesc.setContent(item.desc);
 				}
 			}))().renderInto(document.body);
 
