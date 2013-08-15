@@ -20,56 +20,50 @@ html
 
 		script
 
-			enyo.kind({
-				name: 'StemForge',
-				kind: enyo.Control,
-				layoutKind: 'FittableRowsLayout',
-				tag: 'div',
-				classes: 'onyx',
+			new (enyo.kind({
+				kind: 'FittableRows',
+				classes: 'enyo-fit onyx',
+				data: [
+					{ name: 'NAS' },
+					{ name: 'Fax' }
+				],
 				components: [
 					{
-						kind: 'FittableRows',
-						classes: 'enyo-fit',
+						kind: 'onyx.Toolbar',
+						layoutKind: 'FittableColumnsLayout',
+						components: [
+								{ content: 'StemForge' }
+						]
+					},
+					{
+						name: 'list',
+						kind: 'List',
+						classes: 'enyo-unselectable',
+						fit: true,
 						components: [
 							{
-								kind: 'onyx.Toolbar',
-								layoutKind: 'FittableColumnsLayout',
+								name: 'item',
+								classes: 'list-item',
 								components: [
-										{ content: 'StemForge' }
+									{ name: 'appName', classes: 'list-item-label' }
 								]
-							},
-							{
-								name: 'list',
-								kind: 'List',
-								classes: 'enyo-unselectable',
-								fit: true,
-								data: [
-									{ name: 'NAS' },
-									{ name: 'Fax' }
-								],
-								components: [
-									{
-										name: 'item',
-										components: [
-											{ name: 'appName', classes: 'itemLabel' }
-										]
-									}
-								],
-								onSetupItem: function(inSender, inEvent) {
-									console.log(123);
-									var i = inEvent.index;
-									if (!this.data[i])
-										return;
-
-									this.$.appName.setContent(this.data.name);
-								}
 							}
-						]
+						],
+						onSetupItem: 'setupItem'
 					}
-				]
-			});
+				],
+				rendered: function() {
+					this.inherited(arguments);
+					this.$.list.setCount(2);
+					this.$.list.reset();
+				},
+				setupItem: function(inSender, inEvent) {
+					var i = inEvent.index;
+					if (!this.data[i])
+						return;
 
-			var stemForge = new StemForge();
-
-			stemForge.renderInto(document.body);
+					var item = this.data[i];
+					this.$.appName.setContent(item.name);
+				}
+			}))().renderInto(document.body);
 
