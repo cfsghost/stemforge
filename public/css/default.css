@@ -33,3 +33,7 @@ body {
 	top: 35px;
 	right: 30px;
 }
+
+.toolbar-pull-right {
+	float: right;
+}
