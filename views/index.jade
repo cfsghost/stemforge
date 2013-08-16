@@ -55,17 +55,31 @@ html
 								components: [
 									{ name: 'appName', classes: 'list-item-label' },
 									{ name: 'appDesc', classes: 'list-item-desc' },
-									{ name: 'appDownloadBtn', kind: 'onyx.Button', classes: 'onyx-affirmative list-item-left', content: 'Download' }
+									{ name: 'appDownloadBtn', kind: 'onyx.Button', classes: 'onyx-affirmative list-item-left', content: 'Download', ontap: 'downloadApp', popup: 'dlAppPopup' }
 								]
 							}
 						],
 						onSetupItem: 'setupItem'
-					}
+					},
+					{ name: 'requiredBoardPopup', kind: 'onyx.Popup', classes: 'popup-dialog', modal: true, centered: true, floating: true, scrim: true, components: [
+						{ content: 'Do you already have Cubieboard?' },
+						{ tag: 'br' },
+						{ kind: 'onyx.Button', content: 'Yes', ontap: 'closeReqBoardDialog' },
+						{ kind: 'onyx.Button', content: 'No', ontap: 'closeReqBoardDialog' }
+					]},
+					{ name: 'dlAppPopup', kind: 'onyx.Popup', modal: true, centered: true, floating: true, scrim: true, components: [
+						{ content: 'Make sure you ' },
+						{ content: 'Required Components:' },
+						{ content: 'SATA Hardrive' },
+						{ tag: 'br' },
+						{ kind: 'onyx.Button', content: 'Download Now' }
+					]}
 				],
 				rendered: function() {
 					this.inherited(arguments);
 					this.$.list.setCount(this.data.length);
 					this.$.list.reset();
+					this.$.requiredBoardPopup.show();
 				},
 				setupItem: function(inSender, inEvent) {
 					var i = inEvent.index;
@@ -75,6 +89,16 @@ html
 					var item = this.data[i];
 					this.$.appName.setContent(item.name);
 					this.$.appDesc.setContent(item.desc);
+				},
+				downloadApp: function(inSender) {
+					var popup = this.$[inSender.popup];
+					if (popup)
+						popup.show();
+				},
+				closeReqBoardDialog: function() {
+					var popup = this.$.requiredBoardPopup;
+					if (popup)
+						popup.hide();
 				}
 			}))().renderInto(document.body);
 

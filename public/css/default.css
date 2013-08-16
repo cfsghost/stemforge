@@ -37,3 +37,7 @@ body {
 .toolbar-pull-right {
 	float: right;
 }
+
+.popup-dialog {
+	text-align: center;
+}
