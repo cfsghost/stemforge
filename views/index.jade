@@ -65,6 +65,7 @@ html
 					{ name: 'SignInDialog', kind: 'frex.Dialog.SignIn' },
 					{ name: 'requiredBoardPopup', kind: 'onyx.Popup', classes: 'popup-dialog', modal: true, centered: true, floating: true, scrim: true, components: [
 						{ content: 'Do you already have Cubieboard?' },
+						{ kind: 'ImageView', scale: 'auto', src: 'http://cubieboard.org/wp-content/uploads/2012/10/kk1.jpg', style: 'width: 320px; height: 240px;' },
 						{ tag: 'br' },
 						{ kind: 'onyx.Button', content: 'Yes', ontap: 'closeReqBoardDialog' },
 						{ kind: 'onyx.Button', content: 'No', ontap: 'closeReqBoardDialog' },
@@ -80,7 +81,6 @@ html
 						}
 					]},
 					{ name: 'dlAppPopup', kind: 'onyx.Popup', modal: true, centered: true, floating: true, scrim: true, components: [
-						{ content: 'Make sure you ' },
 						{ content: 'Required Components:' },
 						{ content: 'SATA Hardrive' },
 						{ tag: 'br' },
