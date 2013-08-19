@@ -65,7 +65,17 @@ html
 						{ content: 'Do you already have Cubieboard?' },
 						{ tag: 'br' },
 						{ kind: 'onyx.Button', content: 'Yes', ontap: 'closeReqBoardDialog' },
-						{ kind: 'onyx.Button', content: 'No', ontap: 'closeReqBoardDialog' }
+						{ kind: 'onyx.Button', content: 'No', ontap: 'closeReqBoardDialog' },
+						{
+							name: 'requiredBoardPopupShow',
+							kind: 'enyo.Animator',
+							easingFunction: enyo.easing.cubicOut,
+							duration: 400,
+							startValue: 0,
+							endVlaue: 1,
+							onStep: 'requiredBoardPopupEffect'
+
+						}
 					]},
 					{ name: 'dlAppPopup', kind: 'onyx.Popup', modal: true, centered: true, floating: true, scrim: true, components: [
 						{ content: 'Make sure you ' },
@@ -80,6 +90,7 @@ html
 					this.$.list.setCount(this.data.length);
 					this.$.list.reset();
 					this.$.requiredBoardPopup.show();
+					this.$.requiredBoardPopupShow.play();
 				},
 				setupItem: function(inSender, inEvent) {
 					var i = inEvent.index;
@@ -99,6 +110,10 @@ html
 					var popup = this.$.requiredBoardPopup;
 					if (popup)
 						popup.hide();
+				},
+				requiredBoardPopupEffect: function(inSender) {
+					var value = inSender.value.toFixed(8);
+					this.$.requiredBoardPopup.applyStyle('opacity', value);
 				}
 			}))().renderInto(document.body);
 
