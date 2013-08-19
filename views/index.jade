@@ -13,7 +13,8 @@ html
 			enyo.depends(
 				'$lib/layout',
 				'$lib/onyx',
-				'$lib/layout/fittable'
+				'$lib/layout/fittable',
+				'/components/signinDialog'
 			);
 
 	body.onyx.enyo-unselectable
@@ -39,7 +40,7 @@ html
 						layoutKind: 'FittableColumnsLayout',
 						components: [
 								{ content: 'StemForge' },
-								{ kind: 'onyx.Button', content: 'Sign In', classes: 'toolbar-pull-right' }
+								{ kind: 'onyx.Button', content: 'Sign In', classes: 'toolbar-pull-right', ontap: 'openDialog', popup: 'SignInDialog' }
 						]
 					},
 					{
@@ -61,6 +62,7 @@ html
 						],
 						onSetupItem: 'setupItem'
 					},
+					{ name: 'SignInDialog', kind: 'frex.Dialog.SignIn' },
 					{ name: 'requiredBoardPopup', kind: 'onyx.Popup', classes: 'popup-dialog', modal: true, centered: true, floating: true, scrim: true, components: [
 						{ content: 'Do you already have Cubieboard?' },
 						{ tag: 'br' },
@@ -114,6 +116,11 @@ html
 				requiredBoardPopupEffect: function(inSender) {
 					var value = inSender.value.toFixed(8);
 					this.$.requiredBoardPopup.applyStyle('opacity', value);
+				},
+				openDialog: function(inSender) {
+					var popup = this.$[inSender.popup];
+					if (popup)
+						popup.show();
 				}
 			}))().renderInto(document.body);
 
