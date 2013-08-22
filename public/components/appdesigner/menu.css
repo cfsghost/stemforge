@@ -1,0 +1,15 @@
+
+.appdesigner-menu-item {
+	height: 80px;
+	border-top: 1px solid #000;
+	padding: 12px 16px;
+	background-color: #333333;
+	position: relative;
+	color: #f5f5f5;
+}
+
+.appdesigner-menu-item-label {
+	font-size: 24px;
+	line-height: 60px;
+	padding-left: 30px;
+}
