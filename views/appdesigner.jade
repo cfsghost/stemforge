@@ -34,8 +34,11 @@ html
 					},
 					{
 						kind: 'Panels',
+						classes: 'panel',
 						fit: true,
 						arrangerKind: 'CollapsingArranger',
+						realtimeFit: true,
+						wrap: false,
 						components: [
 							{
 								kind: 'AppDesigner.Menu',
@@ -45,10 +48,25 @@ html
 								touch: true
 							},
 							{
-								kind: 'AppDesigner.Menu',
-								classes: 'enyo-fit',
+								name: 'body',
 								fit: true,
-								touch: true
+								components: [
+									{
+										kind: 'Scroller',
+										fit: true,
+										classes: 'enyo-fit',
+										touch: true,
+										components: [
+											{
+												kind: 'onyx.Groupbox',
+												components: [
+													{ kind: 'onyx.GroupboxHeader', content: 'System Settings' },
+													{ content: 'HOSTNAME: StemOS', style: 'padding 8px;' }
+												]
+											}
+										]
+									}
+								]
 							}
 						]
 					}

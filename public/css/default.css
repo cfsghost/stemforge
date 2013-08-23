@@ -4,6 +4,13 @@ body {
 	margin: 50px;
 }
 
+.panel > * {
+	background-color: #eeeeee;
+	-moz-box-shadow: -4px 0 4px rgba(0,0,0,0.3);
+	-webkit-box-shadow: -4px 0 4px rgba(0,0,0,0.3);
+	box-shadow: -4px 0 4px rgba(0,0,0,0.3);
+}
+
 .list-item {
 	height: 80px;
 	border-top: 1px solid #000;
