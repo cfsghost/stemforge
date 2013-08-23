@@ -1,4 +1,5 @@
 enyo.depends(
 	'menu.css',
-	'menu.js'
+	'menu.js',
+	'system'
 );
