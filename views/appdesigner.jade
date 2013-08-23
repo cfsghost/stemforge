@@ -34,16 +34,27 @@ html
 					},
 					{
 						kind: 'Panels',
+						fit: true,
+						arrangerKind: 'CollapsingArranger',
 						components: [
 							{
-								kind: 'AppDesigner.Menu'
+								kind: 'AppDesigner.Menu',
+								classes: 'enyo-fit',
+								fit: true,
+								style: 'width: 200px;',
+								touch: true
+							},
+							{
+								kind: 'AppDesigner.Menu',
+								classes: 'enyo-fit',
+								fit: true,
+								touch: true
 							}
 						]
 					}
 				],
 				rendered: function() {
 					this.inherited(arguments);
-					this.$.menu.init();
 				}
 			}))().renderInto(document.body);
 
