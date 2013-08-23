@@ -8,6 +8,11 @@
 	color: #555555;
 }
 
+.appdesigner-menu-item.onyx-selected {
+	background-color: #009b95;
+	color: white;
+}
+
 .appdesigner-menu-item-icon {
 }
 

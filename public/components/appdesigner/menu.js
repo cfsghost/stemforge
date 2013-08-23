@@ -24,6 +24,7 @@ enyo.kind({
 		{
 			name: 'item',
 			classes: 'appdesigner-menu-item',
+			ontap: 'tapItem',
 			components: [
 				{ name: 'icon', kind: 'onyx.Icon' },
 				{ name: 'label', classes: 'appdesigner-menu-item-label' }
@@ -31,7 +32,7 @@ enyo.kind({
 		}
 	],
 	handlers: {
-		onSetupItem: 'setupItem',
+		onSetupItem: 'setupItem'
 	},
 	rendered: function() {
 		this.inherited(arguments);
@@ -44,8 +45,11 @@ enyo.kind({
 			return;
 
 		var item = this.data[i];
+		this.$.item.addRemoveClass("onyx-selected", this.isSelected(i));
 		this.$.label.setContent(item.name);
 		this.$.icon.src = '/img/' + item.icon + '.png';
 		this.$.icon.srcChanged();
+	},
+	tapItem: function(inSender, inEvent) {
 	}
 });
