@@ -1,10 +1,14 @@
 
+.appdesigner-menu {
+	background-color: #eee;
+}
+
 .appdesigner-menu-item {
 	height: 32px;
 	border-top: 1px solid #bbb;
 	padding: 10px;
-	background-color: #eeeeee;
 	position: relative;
+	background-color: #eee;
 	color: #555555;
 }
 

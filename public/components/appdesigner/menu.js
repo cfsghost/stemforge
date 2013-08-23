@@ -1,7 +1,7 @@
 enyo.kind({
 	name: 'AppDesigner.Menu',
 	kind: 'List',
-	classes: 'enyo-unselectable',
+	classes: 'enyo-unselectable appdesigner-menu',
 	reorderable: true,
 	data: [
 		{
