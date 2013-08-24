@@ -51,7 +51,7 @@ enyo.kind({
 					kind: 'AppDesigner.System.Panel',
 				},
 				{
-					kind: 'AppDesigner.System.Panel',
+					kind: 'AppDesigner.Package.Panel',
 				},
 				{
 					kind: 'AppDesigner.System.Panel',
