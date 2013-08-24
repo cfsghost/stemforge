@@ -14,10 +14,11 @@ enyo.kind({
 						{ kind: 'onyx.GroupboxHeader', content: 'General Settings' },
 						{
 							kind: 'onyx.InputDecorator',
+							layoutKind: 'FittableColumnsLayout',
 							fit: true,
 							components: [
 								{ classes: 'field-label', content: 'Hostname' },
-								{ kind: 'onyx.Input', classes: 'field-inputbox', style: 'padding-left: 10px;', value: 'StemOS' }
+								{ kind: 'onyx.Input', classes: 'field-inputbox', fit: true, style: 'padding-left: 10px;', value: 'StemOS' }
 							]
 						}
 					]
@@ -29,6 +30,7 @@ enyo.kind({
 						{ kind: 'onyx.GroupboxHeader', content: 'Password' },
 						{
 							kind: 'onyx.InputDecorator',
+							layoutKind: 'FittableColumnsLayout',
 							fit: true,
 							components: [
 								{ classes: 'field-label', content: 'Root Password' },
@@ -37,6 +39,7 @@ enyo.kind({
 						},
 						{
 							kind: 'onyx.InputDecorator',
+							layoutKind: 'FittableColumnsLayout',
 							fit: true,
 							components: [
 								{ classes: 'field-label', content: 'Confirm' },
