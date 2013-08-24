@@ -16,6 +16,10 @@
 	background-color: #263854;
 	background-image: url(/img/highlight-bg.png);
 	color: white;
+
+	-moz-box-shadow: inset 0px 3px 4px rgba(0,0,0,0.3);
+	-webkit-box-shadow: inset 0px 3px 4px rgba(0,0,0,0.3);
+	box-shadow: inset 0px 3px 4px rgba(0,0,0,0.3);
 }
 
 .appdesigner-menu-item-icon {
