@@ -47,7 +47,7 @@ enyo.kind({
 		var item = this.data[i];
 		this.$.item.addRemoveClass("onyx-selected", this.isSelected(i));
 		this.$.label.setContent(item.name);
-		this.$.icon.src = '/img/' + item.icon + '.png';
+		this.$.icon.src = '/img/dark-icons/' + item.icon + '.png';
 		this.$.icon.srcChanged();
 	},
 	tapItem: function(inSender, inEvent) {

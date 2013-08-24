@@ -5,7 +5,8 @@ body {
 }
 
 .panel > * {
-	background-color: #ffffff;
+	background-color: #eee;
+	background-image: url(/img/light-bg.png);
 	-moz-box-shadow: -4px 0 4px rgba(0,0,0,0.3);
 	-webkit-box-shadow: -4px 0 4px rgba(0,0,0,0.3);
 	box-shadow: -4px 0 4px rgba(0,0,0,0.3);
