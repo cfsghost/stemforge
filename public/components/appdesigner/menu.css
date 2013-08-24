@@ -13,7 +13,8 @@
 }
 
 .appdesigner-menu-item.onyx-selected {
-	background-color: #425C67;
+	background-color: #263854;
+	background-image: url(/img/highlight-bg.png);
 	color: white;
 }
 

@@ -3,23 +3,6 @@ enyo.kind({
 	kind: 'List',
 	classes: 'enyo-unselectable appdesigner-menu',
 	reorderable: true,
-	data: [
-		{
-			icon: 'settings-4',
-			name: 'System',
-			tooltip: 'Manage system settings'
-		},
-		{
-			icon: 'database',
-			name: 'Package',
-			tooltip: 'Manage software packages'
-		},
-		{
-			icon: 'code',
-			name: 'External App',
-			tooltip: 'Manage external application'
-		}
-	],
 	components: [
 		{
 			name: 'item',
@@ -31,25 +14,12 @@ enyo.kind({
 			]
 		}
 	],
-	handlers: {
-		onSetupItem: 'setupItem'
-	},
-	rendered: function() {
-		this.inherited(arguments);
-		this.setCount(this.data.length);
-		this.reset();
-	},
-	setupItem: function(inSender, inEvent) {
-		var i = inEvent.index;
-		if (!this.data[i])
-			return;
-
-		var item = this.data[i];
-		this.$.item.addRemoveClass("onyx-selected", this.isSelected(i));
-		this.$.label.setContent(item.name);
-		this.$.icon.src = '/img/dark-icons/' + item.icon + '.png';
-		this.$.icon.srcChanged();
+	events: {
+		onSelected: ''
 	},
 	tapItem: function(inSender, inEvent) {
+
+		// Fire event
+		this.doSelected({ index: inEvent.index });
 	}
 });
