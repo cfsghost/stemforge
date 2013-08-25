@@ -12,18 +12,14 @@ enyo.kind({
 					kind: 'onyx.Groupbox',
 					components: [
 						{ kind: 'onyx.GroupboxHeader', content: 'Packages' },
-						{
-							kind: 'onyx.InputDecorator',
-							layoutKind: 'FittableColumnsLayout',
-							fit: true,
-							components: [
-								{ classes: 'field-label', content: 'Hostname' },
-								{ kind: 'onyx.Input', classes: 'field-inputbox', fit: true, style: 'padding-left: 10px;', value: 'StemOS' }
-							]
-						}
+						{ content: 'samba' },
+						{ content: 'xserver-xorg' }
 					]
 				}
 			]
 		}
-	]
+	],
+	load: function() {
+		console.log(123123123);
+	}
 });

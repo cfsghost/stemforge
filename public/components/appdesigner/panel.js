@@ -69,6 +69,9 @@ enyo.kind({
 		var i = inEvent.index;
 
 		this.$.panels.setIndex(i);
+
+		if (this.$.panels.controls[i].load)
+			this.$.panels.controls[i].load();
 	},
 	onSetupItem: function(inSender, inEvent) {
 		var menu = inSender;
