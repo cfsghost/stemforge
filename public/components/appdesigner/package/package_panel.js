@@ -20,6 +20,5 @@ enyo.kind({
 		}
 	],
 	load: function() {
-		console.log(123123123);
 	}
 });
