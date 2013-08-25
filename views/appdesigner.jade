@@ -20,24 +20,27 @@ html
 
 		script
 
-			new (enyo.kind({
-				kind: 'FittableRows',
-				classes: 'enyo-fit onyx',
-				components: [
-					{
-						kind: 'onyx.Toolbar',
-						layoutKind: 'FittableColumnsLayout',
-						components: [
-								{ content: 'App Desinger', fit: true },
-								{ kind: 'onyx.Button', content: 'Save' }
-						]
-					},
-					{
-						kind: 'AppDesigner.Panel'
+			App.require('AppDesigner', function() {
+
+				new (enyo.kind({
+					kind: 'FittableRows',
+					classes: 'enyo-fit onyx',
+					components: [
+						{
+							kind: 'onyx.Toolbar',
+							layoutKind: 'FittableColumnsLayout',
+							components: [
+									{ content: 'App Desinger', fit: true },
+									{ kind: 'onyx.Button', content: 'Save' }
+							]
+						},
+						{
+							kind: 'AppDesigner.Panel'
+						}
+					],
+					rendered: function() {
+						this.inherited(arguments);
 					}
-				],
-				rendered: function() {
-					this.inherited(arguments);
-				}
-			}))().renderInto(document.body);
+				}))().renderInto(document.body);
+			});
 
