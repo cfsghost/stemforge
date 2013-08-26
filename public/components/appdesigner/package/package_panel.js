@@ -7,6 +7,7 @@ enyo.kind({
 	realtimeFit: true,
 	wrap: false,
 	touch: true,
+	draggable: false,
 	components: [
 		{
 			name: 'toolbar',
