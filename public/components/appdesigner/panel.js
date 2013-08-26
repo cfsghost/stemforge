@@ -61,9 +61,14 @@ enyo.kind({
 	],
 	rendered: function() {
 		this.inherited(arguments);
-		this.$.menu.setCount(this.data.length);
-		this.$.menu.reset();
-		this.$.menu.select(0);
+		if (this.data.length) {
+			this.$.menu.setCount(this.data.length);
+			this.$.menu.reset();
+			this.$.menu.select(0);
+
+			if (this.$.panels.controls[0].load)
+				this.$.panels.controls[0].load();
+		}
 	},
 	onSelected: function(inSender, inEvent) {
 		var i = inEvent.index;

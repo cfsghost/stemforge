@@ -18,7 +18,7 @@ enyo.kind({
 							fit: true,
 							components: [
 								{ classes: 'field-label', content: 'Hostname' },
-								{ kind: 'onyx.Input', classes: 'field-inputbox', fit: true, style: 'padding-left: 10px;', value: 'StemOS' }
+								{ name: 'hostname', kind: 'onyx.Input', classes: 'field-inputbox', fit: true, style: 'padding-left: 10px;' }
 							]
 						}
 					]
@@ -50,5 +50,13 @@ enyo.kind({
 				}
 			]
 		}
-	]
+	],
+	load: function() {
+		var self = this;
+
+		var AppDesigner = App.Engine('AppDesigner');
+		AppDesigner.getSettings('fred', 'nas', {}, function(err, settings) {
+			self.$.hostname.setValue(settings.hostname);
+		});
+	}
 });
