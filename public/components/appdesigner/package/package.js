@@ -1,4 +1,5 @@
 enyo.depends(
 	'package_panel.css',
-	'package_panel.js'
+	'package_panel.js',
+	'list.js'
 );
