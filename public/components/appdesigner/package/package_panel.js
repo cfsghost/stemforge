@@ -47,9 +47,19 @@ enyo.kind({
 			floating: true,
 			scrim: true,
 	//		autoDismiss: false,
-			style: 'background: white; width: 70%; height: 70%;',
+			classes: 'dialog',
+			style: 'width: 480px;',
 			components: [
-				{ content: 'Add Pacakge' }
+				{ content: 'Please enter pacakge name:' },
+				{
+					fit: true,
+					style: 'width: 450px;',
+					kind: 'onyx.InputDecorator',
+					components: [
+						{ name: 'packageNameInput', kind: 'onyx.Input', fit: true, placeholder: 'samba' }
+					]
+				},
+				{ kind: 'Button', content: 'Add' }
 			]
 		}
 	],
@@ -64,5 +74,10 @@ enyo.kind({
 	},
 	addPackage: function() {
 		this.$.addPackageDialog.show();
+
+		// Clear input box and focus on it
+		this.$.packageNameInput.setValue('');
+		this.$.packageNameInput.focus();
+		
 	}
 });
