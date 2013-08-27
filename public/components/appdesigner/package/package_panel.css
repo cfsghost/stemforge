@@ -6,6 +6,12 @@
 	padding: 5px;
 }
 
+.appdesigner-package-toolbar {
+	background-color: #eee;
+	background-image: url(/img/normal-bg.png);
+	border-left: 1px solid rgba(255,255,255,0.3);
+}
+
 .field-label {
 	width: 15%;
 	text-align: right;

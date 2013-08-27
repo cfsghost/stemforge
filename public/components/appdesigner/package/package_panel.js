@@ -15,9 +15,8 @@ enyo.kind({
 				{
 					name: 'toolbar',
 					kind: 'List',
-					classes: 'enyo-unselectable',
 					reorderable: true,
-					classes: 'enyo-fit',
+					classes: 'enyo-fit appdesigner-package-toolbar',
 					style: 'width: 42px;',
 					touch: true,
 					count: 1,
