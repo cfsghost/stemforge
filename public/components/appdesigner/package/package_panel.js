@@ -1,7 +1,6 @@
 enyo.kind({
 	name: 'AppDesigner.Package.Panel',
 	kind: 'Panels',
-	classes: 'panel',
 	fit: true,
 	arrangerKind: 'CollapsingArranger',
 	realtimeFit: true,
